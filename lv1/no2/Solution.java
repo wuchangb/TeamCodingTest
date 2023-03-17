@@ -13,7 +13,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution s = new Solution();
-        System.out.println(s.solution(456));
+//        Solution s = new Solution();
+//        System.out.println(s.solution(456));
+        System.out.println(0%1);
     }
 }

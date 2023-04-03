@@ -7,64 +7,64 @@ import java.util.PriorityQueue;
 
 class Edge implements Comparable<Edge> {
 
-    public int distance;
-    public String vertex;
+    int distance;
+    String name;
 
-    public Edge(int distance, String vertex) {
+    public Edge(int distance, String name) {
         this.distance = distance;
-        this.vertex = vertex;
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Edge{" +
                 "distance=" + distance +
-                ", vertex='" + vertex + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 
     @Override
-    public int compareTo(Edge edge) {
-        return this.distance - edge.distance;
+    public int compareTo(Edge o) {
+        return this.distance - o.distance;
     }
 }
+
 public class DijkstraPath {
 
     public HashMap<String, Integer> dijkstraFunc(HashMap<String, ArrayList<Edge>> graph, String start) {
+        Edge edgeNode;
+        int currDistance, adjDistance;
+        String currNode, adjName;
+        Edge adjacentNode;
+        ArrayList<Edge> nodeList = new ArrayList<>();
         HashMap<String, Integer> distances = new HashMap<>();
-        Edge edgeNode, adjacentNode;
-        int currentDistance, adjacentDistance, distance;
-        String currentNode, adjacent;
-        ArrayList<Edge> nodeList;
-
-        for (String key : graph.keySet()) {
+        for (String key : distances.keySet()) {
             distances.put(key, Integer.MAX_VALUE);
         }
+
         distances.put(start, 0);
 
         PriorityQueue<Edge> priorityQueue = new PriorityQueue<>();
         priorityQueue.add(new Edge(distances.get(start), start));
 
-        //알고리즘 시작
         while (priorityQueue.size() > 0) {
             edgeNode = priorityQueue.poll();
-            currentDistance = edgeNode.distance;
-            currentNode = edgeNode.vertex;
+            currDistance = edgeNode.distance;
+            currNode = edgeNode.name;
 
-            if (distances.get(currentNode) < currentDistance) {
+            if (distances.get(currNode) < currDistance) {
                 continue;
             }
 
-            nodeList = graph.get(currentNode);
+            nodeList = graph.get(currNode);
             for (int i = 0; i < nodeList.size(); i++) {
                 adjacentNode = nodeList.get(i);
-                adjacent = adjacentNode.vertex;
-                adjacentDistance = adjacentNode.distance;
-                distance = adjacentDistance + currentDistance;
+                adjDistance = adjacentNode.distance;
+                adjName = adjacentNode.name;
 
-                if (distance < distances.get(adjacent)) {
-                    distances.put(adjacent, distance);
-                    priorityQueue.add(new Edge(distance, adjacent));
+                if (currDistance + adjDistance < distances.get(adjName)) {
+                    distances.put(adjName, currDistance + adjDistance);
+                    priorityQueue.add(new Edge(currDistance + adjDistance, adjName));
                 }
             }
         }

@@ -36,7 +36,6 @@ public class Main {
     }
 
     static int search(int[] A, int L, int R, int X) {
-
         int res = L-1;
 
         while (L <= R) {

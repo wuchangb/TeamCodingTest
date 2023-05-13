@@ -22,11 +22,8 @@ public class Main {
         int B = 0;
 
         for (int i = 0; i < N; i++) {
-            if (Math.abs(arr[i] + arr[search(arr, -arr[i])]) < min) {
-                A = arr[i];
-                B = arr[search(arr, -arr[i])];
-                min = Math.abs(A + B);
-            }
+            int cand = search(arr, i + 1, arr.length - 1, -arr[i]);
+//            if (cand > i && )
         }
 
         StringBuilder sb = new StringBuilder();
@@ -34,23 +31,21 @@ public class Main {
         System.out.println(sb.toString());
     }
 
-    public static int search(int[] arr, int X) {
+    public static int search(int[] arr, int L, int R, int X) {
+        //X보다 큰 인덱스 중 가장 왼쪽 찾기
         int answer = 0;
         int left = 0;
         int right = arr.length-1;
         while (left <= right) {
             int mid = (left + right) / 2;
-            if (arr[mid] < X) {
-                left = mid + 1;
+            if (arr[mid] >= X) {
                 answer = mid;
+                right = mid - 1;
             } else {
-                right = mid -1;
+                left = mid + 1;
             }
         }
 
-        if (answer == arr.length-1) return answer;
-        if (X - arr[answer] < arr[answer + 1] - X) {
-            return answer;
-        } else return answer+1;
+        return answer;
     }
 }

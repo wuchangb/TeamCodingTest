@@ -23,5 +23,6 @@ public class Main {
             sb.append(dy[num]).append("\n");
         }
         System.out.println(sb.toString());
+        //qqqq
     }
 }

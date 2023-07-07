@@ -24,18 +24,18 @@ public class Main {
 
         long count = 0;
 
-        for (long i = 2; i <= max; i++) {
-            if (notPrime[(int)i]) continue;
-            long tmp = i * i;
+            for (long i = 2; i <= max; i++) {
+                if (notPrime[(int)i]) continue;
+                long tmp = i * i;
 
-            while (tmp <= B) {
-                if (tmp >= A) {
-                    count++;
+                while (tmp <= B) {
+                    if (tmp >= A) {
+                        count++;
+                    }
+                    if (i > 100000) break;
+                    tmp *= i;
                 }
-                if (i > 100000) break;
-                tmp *= i;
             }
-        }
 
         System.out.println(count);
 
@@ -43,7 +43,7 @@ public class Main {
 
     static void eratos() {
         notPrime[0] = notPrime[1] = true;
-        for (int i = 2; i * i <= max; i++) {
+        for (int i = 2; i <= max; i++) {
             if (notPrime[i]) continue;
             for (int j = i * 2; j <= max; j += i) {
                 notPrime[j] = true;

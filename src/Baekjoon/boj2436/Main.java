@@ -31,7 +31,7 @@ public class Main {
         System.out.println(sb.toString());
     }
 
-    static long func(long a, long b) {
+    static long func(long a, long b) {  //유클리드호제법
         if (a % b == 0) {
             return b;
         } else {

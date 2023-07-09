@@ -12,7 +12,6 @@ public class Main2 {
         boolean flag = false;
         String answer = "SUBMARINE";
         int i = 0;
-
         while(i < sound.length()) {
             if (!flag) {
                 if (sound.charAt(i) == '1') {

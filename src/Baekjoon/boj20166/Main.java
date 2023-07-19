@@ -52,9 +52,6 @@ public class Main {
             sb.append(map.get(list[i])).append("\n");
         }
         System.out.println(sb.toString());
-//        for (String key : map.keySet()) {
-//            System.out.println(map.get(key));
-//        }
     }
 
     static void dfs(int x, int y, int count, String s) {

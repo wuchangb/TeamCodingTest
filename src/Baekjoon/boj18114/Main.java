@@ -44,26 +44,6 @@ public class Main {
             }
         }
 
-//        int L = 1;
-//        int R = N;
-//        int weight;
-//
-//        while (L <= R) {
-//            weight = arr[L] + arr[R];
-//            if (weight == C) {
-//                System.out.println(1);
-//                return;
-//            } else if (weight > C) {
-//                R--;
-//            } else {
-//                int remain = C - weight;
-//                if (set.contains(remain) && remain != arr[L] && remain != arr[R]) {
-//                    System.out.println(1);
-//                    return;
-//                }
-//                L++;
-//            }
-//        }
         System.out.println(0);
     }
 }

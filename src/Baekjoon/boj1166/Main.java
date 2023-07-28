@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 public class Main {
 
     static int N,L,W, H;
-    static double min;
+    static double min, answer;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,8 +20,8 @@ public class Main {
 
         min = Math.min(L, Math.min(W, H));
 
-        min = search(0, min);
-        System.out.println(min);
+        answer = search(0, min);
+        System.out.println(answer);
     }
 
     static double search(double start, double end) {

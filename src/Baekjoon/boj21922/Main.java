@@ -27,15 +27,15 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        N = stoi(st.nextToken());
-        M = stoi(st.nextToken());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
         visit = new boolean[N][M][4];
 
         for (int i = 0; i < N; i++) {
-            st = new StringTokenizer(br.readLine(), " ");
+            st = new StringTokenizer(br.readLine());
             for (int j = 0; j < M; j++) {
-                int temp = stoi(st.nextToken());
+                int temp = Integer.parseInt(st.nextToken());
                 if(temp == 9) {
                     for (int dir = 0; dir < 4; dir++) {
                         visit[i][j][dir] = true;
@@ -99,7 +99,4 @@ public class Main {
         }
     }
 
-    public static int stoi(String str) {
-        return Integer.parseInt(str);
-    }
 }
